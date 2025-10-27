@@ -53,6 +53,12 @@ metrics:
     type_params:
       measure: failed_logins
 
+  - name: total_storage_gb
+    label: "Total Storaged Used"
+    type: simple
+    type_params:
+      measure: total_storage_gb
+
   - name: query_fail_rate
     label: "Query Failure Rate"
     description: "Ratio of failed queries to total executed queries."
