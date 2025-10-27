@@ -8,7 +8,7 @@ semantic_models:
     entities:
       - name: warehouse
         type: primary
-        expr: warehouse_util_name
+        expr: warehouse_name
 
     measures:
       - name: avg_running
