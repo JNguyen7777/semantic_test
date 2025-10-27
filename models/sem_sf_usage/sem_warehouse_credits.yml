@@ -13,7 +13,7 @@ semantic_models:
         description: "Total Snowflake credits consumed"
         agg: sum
         expr: credits_used
-        agg_time_dimension: start_time    # ✅ required field
+        agg_time_dimension: start_time
 
     dimensions:
       - name: start_time
