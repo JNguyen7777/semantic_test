@@ -1,0 +1,30 @@
+version: 2
+
+semantic_models:
+  - name: login_history
+    model: ref('stg_login_history')
+    description: "User login success and failure events"
+
+    entities:
+      - name: user
+        type: primary
+        expr: user_name
+
+    measures:
+      - name: failed_logins
+        description: "Count of failed logins"
+        agg: count
+        expr: case when is_success = 'NO' then 1 else null end
+        agg_time_dimension: login_time
+
+      - name: successful_logins
+        description: "Count of successful logins"
+        agg: count
+        expr: case when is_success = 'YES' then 1 else null end
+        agg_time_dimension: login_time
+
+    dimensions:
+      - name: login_time
+        type: time
+        type_params:
+          time_granularity: day
