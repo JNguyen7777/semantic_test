@@ -1,0 +1,9 @@
+models:
+  - name: time_spine
+    description: "Continuous daily date spine for semantic layer time-based metrics"
+    columns:
+      - name: date_day
+        description: "Unique date representing each day in the time spine"
+        tests:
+          - not_null
+          - unique
