@@ -3,7 +3,7 @@
 select
     warehouse_id,
     warehouse_name,
-    start_time::timestamp_ntz as cred_start_time,
+    start_time::timestamp_ntz as credit_start_time,
     end_time::timestamp_ntz as end_time,
     credits_used,
     credits_used_compute,
