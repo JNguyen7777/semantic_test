@@ -1,29 +1,13 @@
-version: 2
-
-semantic_models:
+models:
   - name: time_spine
-    model: ref('time_spine')
-    description: "Continuous hourly time spine used for time-based metrics"
-
-    entities:
-      - name: date
-        type: primary
-        expr: date_hour
-
-    dimensions:
+    time_spine:
+      standard_granularity_column: date_day
+    columns:
       - name: date_hour
-        type: time
-        type_params:
-          time_granularity: hour
+        granularity: hour
       - name: date_day
-        type: time
-        type_params:
-          time_granularity: day
+        granularity: day
       - name: week_start_date
-        type: time
-        type_params:
-          time_granularity: week
+        granularity: week
       - name: month_start_date
-        type: time
-        type_params:
-          time_granularity: month
+        granularity: month
