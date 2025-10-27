@@ -1,9 +1,23 @@
-models:
+semantic_models:
   - name: time_spine
-    description: "Continuous daily date spine for semantic layer time-based metrics"
-    columns:
+    model: ref('time_spine')
+    description: "Continuous daily time spine used for time-based metrics"
+
+    entities:
+      - name: date
+        type: primary
+        expr: date_day
+
+    dimensions:
       - name: date_day
-        description: "Unique date representing each day in the time spine"
-        tests:
-          - not_null
-          - unique
+        type: time
+        type_params:
+          time_granularity: day
+      - name: week_start_date
+        type: time
+        type_params:
+          time_granularity: week
+      - name: month_start_date
+        type: time
+        type_params:
+          time_granularity: month
