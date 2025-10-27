@@ -20,6 +20,7 @@ semantic_models:
       - name: query_count
         description: "Total queries run"
         agg: count
+        expr: 1
         agg_time_dimension: start_time
 
       - name: failed_query_count
