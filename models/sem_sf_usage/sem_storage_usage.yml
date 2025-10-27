@@ -22,5 +22,3 @@ semantic_models:
         type: time
         type_params:
           time_granularity: day
-      - name: schema_name
-        type: categorical
