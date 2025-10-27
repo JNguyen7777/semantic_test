@@ -1,0 +1,26 @@
+version: 2
+
+semantic_models:
+  - name: storage_usage
+    model: ref('stg_database_storage_usage')
+    description: "Database and schema-level storage usage"
+
+    entities:
+      - name: database
+        type: primary
+        expr: database_name
+
+    measures:
+      - name: total_storage_gb
+        description: "Total storage in gigabytes"
+        agg: sum
+        expr: avg_storage_gb
+        agg_time_dimension: usage_date
+
+    dimensions:
+      - name: usage_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: schema_name
+        type: categorical

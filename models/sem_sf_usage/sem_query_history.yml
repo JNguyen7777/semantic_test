@@ -1,0 +1,41 @@
+version: 2
+
+semantic_models:
+  - name: query_history
+    model: ref('stg_query_history')
+    description: "Query performance and user activity metrics"
+
+    entities:
+      - name: user
+        type: primary
+        expr: user_name
+
+    measures:
+      - name: avg_query_duration
+        description: "Average query runtime (seconds)"
+        agg: average
+        expr: query_duration_sec
+        agg_time_dimension: start_time
+
+      - name: query_count
+        description: "Total queries run"
+        agg: count
+        agg_time_dimension: start_time
+
+      - name: failed_query_count
+        description: "Failed queries"
+        agg: count
+        expr: case when error_code is not null then 1 else null end
+        agg_time_dimension: start_time
+
+    dimensions:
+      - name: start_time
+        type: time
+        type_params:
+          time_granularity: day
+      - name: role_name
+        type: categorical
+      - name: warehouse_name
+        type: categorical
+      - name: database_name
+        type: categorical

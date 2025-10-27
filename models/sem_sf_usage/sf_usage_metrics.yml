@@ -1,0 +1,22 @@
+metrics:
+  - name: total_credits_consumed
+    label: "Total Credits Consumed"
+    description: "Total Snowflake credits used across all warehouses."
+    type: simple
+    type_params:
+      measure: total_credits
+
+  - name: avg_query_duration
+    label: "Average Query Duration"
+    description: "Average query execution time (seconds) across all users."
+    type: simple
+    type_params:
+      measure: avg_query_duration
+
+  - name: query_fail_rate
+    label: "Query Failure Rate"
+    description: "Ratio of failed queries to total executed queries."
+    type: ratio
+    type_params:
+      numerator: failed_query_count
+      denominator: query_count
