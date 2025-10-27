@@ -22,3 +22,6 @@ semantic_models:
         type: time
         type_params:
           time_granularity: day
+      - name: database_name
+        type: categorical
+
