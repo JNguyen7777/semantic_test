@@ -16,7 +16,7 @@ semantic_models:
         agg_time_dimension: start_time
 
     dimensions:
-      - name: start_time
+      - name: credit_start_time
         type: time
         type_params:
           time_granularity: day
