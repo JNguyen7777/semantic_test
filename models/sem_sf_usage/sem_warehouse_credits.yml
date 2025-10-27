@@ -1,0 +1,23 @@
+semantic_models:
+  - name: warehouse_credits
+    model: ref('stg_warehouse_metering_history')
+    description: "Credits consumption by warehouse over time"
+
+    entities:
+      - name: warehouse
+        type: primary
+        expr: warehouse_name
+
+    measures:
+      - name: total_credits
+        description: "Total Snowflake credits consumed"
+        agg: sum
+        expr: credits_used
+
+    dimensions:
+      - name: start_time
+        type: time
+        type_params:
+          time_granularity: day
+      - name: warehouse_name
+        type: categorical
