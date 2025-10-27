@@ -28,24 +28,6 @@ metrics:
     type: simple
     type_params:
       measure: failed_query_count
-  
-  - name: peak_utilization
-    label: "Peaked Warehouse Utilization"
-    type: simple
-    type_params:
-      measure: peak_utilization
-
-  - name: avg_running
-    label: "Average Warehouse Utilization"
-    type: simple
-    type_params:
-      measure: avg_running
-
-  - name: avg_queued
-    label: "Average Warehouse Queued"
-    type: simple
-    type_params:
-      measure: avg_queued
 
   - name: failed_logins
     label: "Number of Failed Logins"
