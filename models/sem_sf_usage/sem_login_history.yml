@@ -28,3 +28,5 @@ semantic_models:
         type: time
         type_params:
           time_granularity: day
+      - name: user_name
+        type: categorical
