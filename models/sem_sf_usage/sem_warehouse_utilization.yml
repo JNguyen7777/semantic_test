@@ -15,22 +15,22 @@ semantic_models:
         description: "Average number of running queries"
         agg: average
         expr: running_queries
-        agg_time_dimension: load_start_time
+        agg_time_dimension: start_time
 
       - name: avg_queued
         description: "Average number of queued queries"
         agg: average
         expr: queued_load
-        agg_time_dimension: load_start_time
+        agg_time_dimension: start_time
 
       - name: peak_utilization
         description: "Peak warehouse utilization percentage"
         expr: (running_queries / nullif(running_queries + queued_load, 0)) * 100
         agg: max
-        agg_time_dimension: load_start_time 
+        agg_time_dimension: start_time
 
     dimensions:
-      - name: load_start_time
+      - name: start_time
         type: time
         type_params:
           time_granularity: hour
