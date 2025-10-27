@@ -1,5 +1,5 @@
 version: 2
-
+#test
 semantic_models:
   - name: login_history
     model: ref('stg_login_history')
